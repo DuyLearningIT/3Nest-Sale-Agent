@@ -9,6 +9,6 @@ app.include_router(matching_router)
 @app.get('/')
 async def default():
     return {
-        'mess' : 'API is running 2!',
+        'mess' : 'API is running!',
         'status_code' : status.HTTP_200_OK
     }

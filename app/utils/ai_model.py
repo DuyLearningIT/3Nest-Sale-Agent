@@ -15,10 +15,7 @@ async def matching_information(document_A: str, document_B: str):
 
     prompt = f"""
     You are an AI assistant specializing in document analysis.
-    Based on the given information about document A and document B, 
-    We're company A, please check for us whether my company can become a partner of company B or not, 
-    if the answer is YES, talk about the fields of B that I can involve in, 
-    if the answer is NO, just give me the reason.
+    Based on the given information about document A and document B
 
     **Document A:**
     ---
@@ -30,12 +27,12 @@ async def matching_information(document_A: str, document_B: str):
     {document_B}
     ---
 
-    **Analysis Tasks:**
-    1.  Answer: Do my company can become the partner of B company or not? Answer with "Yes" or "No".
-    2.  Details: Briefly explain your reasoning for the answer above in one sentence.
+    Analysis Tasks:
+    - You just need to give me the answer is YES or NO, and then give me all the information of this company 
+    including CEO, email, phone, ... of company B if haved
     """
     try:
         response = model.generate_content(prompt)
         return response.text
     except Exception as e:
-        print(f"An error occurred: {e}")
+        return str(e)
