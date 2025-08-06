@@ -1,0 +1,5 @@
+.env/
+uploads/
+vector_store.db
+__pycache__/
+.DS_store
